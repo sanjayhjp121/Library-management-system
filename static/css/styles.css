@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
+}
+
+section {
+  font-family: "Poppins", sans-serif;
+  padding: 4% 12%;
+}
+section a {
+  text-decoration: none;
+  color: black;
+}
+section .heading {
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 4%;
+}
+section .nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0% auto;
+}
+section .nav .total-results {
+  font-size: 16px;
+  color: rgb(56, 56, 56);
+}
+section .nav .total-results strong {
+  color: black;
+}
+section .nav .sort {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+section .nav .sort select {
+  padding: 4px 8px;
+  background-color: beige;
+  border: 1px solid black;
+  border-radius: 6px;
+  margin: 0 6px;
+}
+section .results {
+  padding: 6% 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+section .results .result {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 16px;
+  height: 120px;
+  border: 1px solid black;
+  padding: 6px;
+  margin: 16px 0;
+  width: 46%;
+}
+section .results .result .cover {
+  width: 100px;
+  height: 100px;
+  border-radius: 16px;
+  margin: 0 16px;
+}
+section .results .paggination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+section .results .paggination a {
+  padding: 6px 8px;
+  background-color: beige;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+@media only screen and (max-width: 1200px) {
+  section {
+    padding: 2% 6%;
+  }
+  .nav {
+    flex-direction: column;
+  }
+  .nav .sort select {
+    min-width: 90%;
+    margin: 6px 0 !important;
+  }
+  .results .result {
+    width: 100% !important;
+    height: 150px !important;
+  }
+  .results .result .cover {
+    min-width: 100px;
+  }
+}/*# sourceMappingURL=styles.css.map */

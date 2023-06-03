@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <section>
+        <div class="heading">
+            <a href="/"><i class="fas fa-book-reader"></i> My Bookshelf</a>
+        </div>
+        <div class="nav">
+            <div class="total-results">
+                Total Results : <strong> <%= books.length %> </strong>
+            </div>
+            <div class="sort">
+                <div class="">Sort By: &nbsp;</div>
+                <select name="title" id="" onchange="location = this.value;">
+                    <option selected disabled value="/">Title</option>
+                    <option value="/?sort=title">Ascending (a-z)</option>
+                    <option value="/?sort=-title">Descending (z-a)</option>
+                </select>
+                <select name="author" id="" onchange="location = this.value;">
+                    <option selected disabled value="all">Author</option>
+                    <option value="/?sort=author">Ascending (a-z)</option>
+                    <option value="/?sort=-author">Descending (z-a)</option>
+                </select>
+                <select name="date" id="" onchange="location = this.value;">
+                    <option selected disabled value="all">Date</option>
+                    <option value="/?sort=publishDate">Ascending (a-z)</option>
+                    <option value="/?sort=-publishDate">Descending (z-a)</option>
+                </select>
+                <select name="subject" id="" onchange="location = this.value;">
+                    <option selected disabled value="all">Subject</option>
+                    <option value="/?subject=History">History</option>
+                    <option value="/?subject=Maths">Maths</option>
+                    <option value="/?subject=Science">Science</option>
+                    <option value="/?subject=Fantasy">Fantasy</option>
+                </select>
+            </div>
+        </div>
+        <div class="results">
+            
+            <% books.map(book=>{ %>
+            <div class="result">
+                <div class="cover" style="background-image: url('<%= book.img %>'); background-position: center; background-size: cover;"></div>
+                <div class="text">
+                    <div class="name"><%= book.title.substring(0,30) %> by <strong><%= book.author %></strong></div>
+                    <div class="subject">Subject: <strong><%= book.subject.split(",")[0] %></strong></div>
+                    <div class="date">Date: <strong> <%= book.publishDate.toLocaleDateString() %></strong></div>
+                </div>
+            </div>
+            <% }) %>
+            <div class="paggination">
+                <% if(page != 1){ %>
+                    <a href="/?page=<%= page-1 %>"
+                      class="previous"
+                      >Prev</a
+                    >
+                    <% } %>
+                    <a href="/?page=<%= page+1 %>" class="next"
+                      >Next</a
+                    >
+            </div>
+            
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- <script>
+         $(document).ready(function() {
+
+            if (window.location.pathname === '/' && !window.location.search.includes('page=')) {
+      window.location.href = '/?page=1'; // Redirect to /?page=1
+    }       
+         })
+         
+         $(".next").click(()=>{
+            page = parseInt(window.location.href.split("?")[2].split("="))
+            console.log(page)
+        })
+    </script> -->
+</body>
+</html>
